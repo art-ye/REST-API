@@ -1,0 +1,20 @@
+{
+  "name": "restapi-zimad",
+  "version": "1.0.0",
+  "description": "Rest API test exercise for ZiMAD / using Node.js, Express, MySQL and bearer token concept",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Artavazd Yeghiazaryan",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
