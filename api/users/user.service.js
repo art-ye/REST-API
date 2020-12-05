@@ -16,6 +16,32 @@ module.exports = {
                 }
                 return callback(null, results)
              }
-        )}
+        )},
+     
+    getUsers: callback => {
+        pool.query(
+            `SELECT id from signup`,
+            [],
+            (err, results, fields) => {
+                if (error) {
+                    return callback(error);
+                }
+                return callback(null, results);
+            }
+        );
+    },
 
-}
+    getUserByUserEmail: (email, callback) => {
+        pool.query(
+            `SELECT * FROM signup WHERE id = ?`,
+            [email],
+            (error, results, fields) => {
+                if (error) {
+                   return callback(error)
+                }
+                return callback(null, results)
+            }
+        )
+    }
+
+};
