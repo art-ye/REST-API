@@ -1,4 +1,3 @@
-const { query } = require('express');
 const pool = require('../../config/database');
 
 module.exports = {
@@ -18,28 +17,15 @@ module.exports = {
              }
         )},
      
-    getUsers: callback => {
-        pool.query(
-            `SELECT id from signup`,
-            [],
-            (err, results, fields) => {
-                if (error) {
-                    return callback(error);
-                }
-                return callback(null, results);
-            }
-        );
-    },
-
-    getUserByUserEmail: (email, callback) => {
+    getUserByUserEmail: (id, callback) => {
         pool.query(
             `SELECT * FROM signup WHERE id = ?`,
-            [email],
+            [id],
             (error, results, fields) => {
                 if (error) {
-                   return callback(error)
+                   callback(error)
                 }
-                return callback(null, results)
+                return callback(null, results[0])
             }
         )
     }
